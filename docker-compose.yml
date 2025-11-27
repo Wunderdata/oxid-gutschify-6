@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  oxid6-mysql:
+    image: mysql:5.7
+    container_name: oxid6-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: oxid6
+      MYSQL_USER: oxid6
+      MYSQL_PASSWORD: oxid6
+    volumes:
+      - oxid6-mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  oxid6-web:
+    image: php:7.4-apache
+    container_name: oxid6-web
+    depends_on:
+      oxid6-mysql:
+        condition: service_healthy
+    volumes:
+      - ./:/var/www/html/source/modules/gutschify
+      - oxid6-oxid:/var/www/html
+    ports:
+      - "8080:80"
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    command: >
+      bash -c "
+      docker-php-ext-install mysqli pdo pdo_mysql &&
+      a2enmod rewrite &&
+      sed -i 's|/var/www/html|/var/www/html|g' /etc/apache2/sites-available/000-default.conf &&
+      apache2-foreground
+      "
+    working_dir: /var/www/html
+
+volumes:
+  oxid6-mysql-data:
+  oxid6-oxid:
+

@@ -1,0 +1,18 @@
+# OXID cache
+tmp/
+*.cache
+
+# Composer dependencies
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+

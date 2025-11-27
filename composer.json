@@ -1,0 +1,22 @@
+{
+    "name": "gutschify/oxid-module-6",
+    "description": "OXID eShop 6.x module for displaying Gutschify embedded home page",
+    "type": "library",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    }
+}
+
