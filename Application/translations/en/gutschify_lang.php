@@ -9,5 +9,12 @@ $aLang = [
     'SHOP_MODULE_widget_title' => 'Widget Title (optional)',
     'SHOP_MODULE_cache_enabled' => 'Enable Caching',
     'SHOP_MODULE_cache_ttl' => 'Cache Time-to-Live (seconds)',
+    // Visual CMS Widget translations
+    'DD_VISUAL_EDITOR_SHORTCODE_GUTSCHIFY' => 'Gutschify Widget',
+    'DD_VISUAL_EDITOR_WIDGET_GUTSCHIFY_COLLECTION' => 'Collection Slug',
+    'DD_VISUAL_EDITOR_WIDGET_GUTSCHIFY_COLLECTION_PLACEHOLDER' => 'e.g. default',
+    'DD_VISUAL_EDITOR_WIDGET_GUTSCHIFY_TITLE' => 'Widget Title (optional)',
+    'DD_VISUAL_EDITOR_WIDGET_GUTSCHIFY_TITLE_PLACEHOLDER' => 'Optional title above widget',
 ];
+
 
