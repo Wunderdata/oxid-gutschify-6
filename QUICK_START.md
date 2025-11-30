@@ -1,5 +1,18 @@
 # Quick Start: Using the Gutschify Widget
 
+## Step 0: Register Module (OXID PE/EE only)
+
+For OXID 6 Professional and Enterprise editions (e.g., v6.5.5), the module must be registered via console before it appears in the admin:
+
+```bash
+cd /path/to/oxid
+php vendor/bin/oe-console oe:module:install-configuration source/modules/gutschify/ \
+  && vendor/bin/oe-console oe:module:apply-configuration \
+  && rm -rf source/tmp/*
+```
+
+> **Note:** OXID CE (Community Edition) users can skip this step.
+
 ## Step 1: Configure the Module
 
 1. Go to **Extensions → Modules**
@@ -77,4 +90,5 @@ The widget will now display your Gutschify embedded home content with:
 - Check that the **Organization ID** is valid
 - Ensure the **Collection Slug** exists
 - Check `log/oxideshop.log` for errors
+
 

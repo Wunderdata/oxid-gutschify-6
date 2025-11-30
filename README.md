@@ -30,15 +30,28 @@ This module displays the Gutschify embedded home page as a configurable widget/b
    rm -rf /path/to/oxid/tmp/*
    ```
 
-3. Log in to OXID Admin Panel
+3. **Register the module configuration (required for OXID 6 PE/EE editions):**
+   
+   In OXID 6 Professional and Enterprise editions (e.g., v6.5.5), the module won't appear in the admin without registering it first via the OXID console:
+   
+   ```bash
+   cd /path/to/oxid
+   php vendor/bin/oe-console oe:module:install-configuration source/modules/gutschify/ \
+     && vendor/bin/oe-console oe:module:apply-configuration \
+     && rm -rf source/tmp/*
+   ```
+   
+   > **Note:** For OXID CE (Community Edition), this step may not be required - the module should appear automatically after copying the files.
 
-4. Navigate to **Extensions → Modules**
+4. Log in to OXID Admin Panel
 
-5. Find "Gutschify Embedded Home Widget" in the module list
+5. Navigate to **Extensions → Modules**
 
-6. Click **Activate** to activate the module
+6. Find "Gutschify Embedded Home Widget" in the module list
 
-7. Click on the module name to configure settings
+7. Click **Activate** to activate the module
+
+8. Click on the module name to configure settings
 
 ## Configuration
 
