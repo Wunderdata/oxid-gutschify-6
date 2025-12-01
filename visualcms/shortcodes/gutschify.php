@@ -178,7 +178,9 @@ class gutschify_shortcode extends VisualEditorShortcode
                 <p><strong>Error:</strong> ' . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . '</p>
             </div>';
         } elseif (!empty($content)) {
-            $sOutput .= $content;
+            // Wrap content in Smarty literal tags to prevent Smarty from parsing
+            // the [{ sequences in the JSON data as template tags
+            $sOutput .= '[{literal}]' . $content . '[{/literal}]';
         } else {
             $sOutput .= '<div class="gutschify-widget-error" style="padding: 20px; background: #fee; border: 1px solid #fcc; color: #c00;">
                 <p>Content could not be loaded.</p>
